@@ -19,4 +19,5 @@ The data was sourced from [kaggle.com](https://www.kaggle.com/paultimothymooney/
 Upon initially exploring the data, I noticed it contained a number of unusable files such as checkpoints and '.DS_store'. I made the decision to remove them before uploading because my functions repeatedly accessed them instead of the image files which would cause my code to break. I then loaded the data and explored the number of images per set and ensured that all of the files are readable. 
 
 ### Data Visualization
-Because the X-Rays are labeled into groups it is necessary to verify their balance and as seen in the following visualization it clearly is.
+Because the X-Rays are labeled into groups it is necessary to verify their balance.
+As seen above, the data is clearly unbalanced. I've left it as it is in an attempt to give the highest weight possible to the training set, given that large datasets are necessary for Deep Learning. Furthermore, the train subset will be augmented so that the number of images increases to further stabilize the model.
