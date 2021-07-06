@@ -78,7 +78,10 @@ As can be seen above, the curves of the validation accuracy and the loss indicat
 
 It's clear from the train accuracy that the model is overfitted; however the model's accuracies were still decent with the test subset. See the results below:
 
-**insert precision results**
+* Accuracy: 91.22137404580153%
+* Precision: 90.38461538461539%
+* Recall: 96.76470588235294%
+* F1-score: 93.4659090909091
 
 It's important to note in evaluating the model that accuracy is an inappropriat perfomance measure for imbalanced classification problems such as this. This is because the high number of samples that form the majority class (training subset) overshadows the number of examples in the minority class. This translates to accuracy scores as high as 99% for unskilled models, depending on how severe the class imbalance is. [Source](https://machinelearningmastery.com/precision-recall-and-f-measure-for-imbalanced-classification/)
 
@@ -98,7 +101,7 @@ I'll now examine the plotted confusion to better understand these metrics. It's 
 
 **insert image**
 
-In viewing the matrix, we see **insert number** representing the fn and the **insert number** representing the tp from our model, we can agree that having **insert fn number** means that only **insert fn** patients are misdiagnosed as *not* having pneumonia.
+In viewing the matrix, we see 11 representing the fn and the 329 representing the tp from our model, we can deduct that this means that only 11 patients are misdiagnosed as *not* having pneumonia.
 
 # Conclusion
 This project has shown how to classify positive and negative pneumonia diagnosis' from a set of X-Ray images and although it's far from complete and could be improved, it is amazing to see the success of deep learning being used in real world problems.
