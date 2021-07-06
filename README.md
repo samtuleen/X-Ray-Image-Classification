@@ -1,4 +1,4 @@
-# X-Ray-Image-Classification
+# Detecting Pediatric Pnuemonia From X-Rays Using Image Classification
 
 ## Summary
 The goal of this project is to use Deep Learning Neural Network to build an algorithm to classify a set X-rays images of pediatric patients to  help determine if whether or not pneumonia is present. The Neural Network chosen was the Convolutional Neural Network (CNN) as it is one of the preferred for image processing.
@@ -18,8 +18,14 @@ The data was sourced from [kaggle.com](https://www.kaggle.com/paultimothymooney/
 ### Exploring the Data
 Upon initially exploring the data, I noticed it contained a number of unusable files such as checkpoints and '.DS_store'. I made the decision to remove them before uploading because my functions repeatedly accessed them instead of the image files which would cause my code to break. I then loaded the data and explored the number of images per set and ensured that all of the files are readable. 
 
+**insert image**
+
+
 ### Data Visualization
 Because the X-Rays are labeled into groups it is necessary to verify their balance.
+
+**insert image**
+
 As seen above, the data is clearly unbalanced. I've left it as it is in an attempt to give the highest weight possible to the training set, given that large datasets are necessary for Deep Learning. Furthermore, the train subset will be augmented so that the number of images increases to further stabilize the model.
 
 ## Image Preprocessing
@@ -35,7 +41,9 @@ I've augmented the training subset using the following parameters:
 
 ** vertical_flip=True
 
-# Modeling
+## Modeling
+
+I've built my model by doing the following:
 
 1- Use five convolutional blocks comprised of convolutional layers, BatchNormalization, and MaxPooling.
 
@@ -54,7 +62,52 @@ Note:
 After testing 8 models, I've chosen the following since it has offered satisfactory results based on both its validation and test accuracy.
 The final model is a five Convolution Block model with twin (double) Conv2D per block and Dropout of 0.2.
 
-All of the 8 models were initially trained with 10 and 15 epochs and was increased to 50 when the  the validation accuracy increased to more than 70%. Furthermore, an attempt was done to run both models with 100 epochs but neither was successful and ended with the laptop crashing. Once I managed to have results with 100 epochs I will update this repository with those results regardless of their nature (positive or negative).
+**insert image**
+
+All of the 8 models were initially trained with 10 and 15 epochs and was increased to 50 when the  the validation accuracy increased to more than 70%. Additionally, I've attempted to increase the epochs to 100 however my system couldn't handle the burden.
 
 I've also plotted a Confusion Matrix to aid in the calculation of other metrics such as F-1, recall, and precision.
 
+## Analyzing the Model's Performance
+
+The simplest way to analyze the perfomance of a model is to examine a visualization of its results:
+
+**insert image**
+
+As can be seen above, the curves of the validation accuracy and the loss indicate that the model may converge with more than 50 epochs (though it hasn't happened with the ones its been fitted with). As I've previously mentioned, I've attempted more but failed.
+
+It's clear from the train accuracy that the model is overfitted; however the model's accuracies were still decent with the test subset. See the results below:
+
+**insert precision results**
+
+It's important to note in evaluating the model that accuracy is an inappropriat perfomance measure for imbalanced classification problems such as this. This is because the high number of samples that form the majority class (training subset) overshadows the number of examples in the minority class. This translates to accuracy scores as high as 99% for unskilled models, depending on how severe the class imbalance is. [Source](https://machinelearningmastery.com/precision-recall-and-f-measure-for-imbalanced-classification/)
+
+As an alternative better option, using precision, recall and F-1 metrics can offer more reliable results. These metric concepts are are follows:
+
+**Precision:** quantifies the number of correct positive predictions made: it calculates the accuracy for the minority class. = tp/(tp + tp)
+
+**Recall:** quantifies the number of positive class predictions made out of all positive examples in the dataset. It provides an indication of missed positive predictions. = tp/(tp + fn)
+
+**F1-Score:** balances both the concerns of precision and recall in one number. A good F1 score means low false positives and low false negatives  = (tp + tp)/total
+
+**Note: tp = true positive, tn = true negative, fp = false positive, and fn = false negative**
+
+
+### Confusion Matrix
+I'll now examine the plotted confusion to better understand these metrics. It's important to keep in mind that the most important one is Recall, because patients prefer that the doctor misdiagnosed them with pneumonia when in fact they don't, over a healthy misdiagnosis when in reality pneumonia is present. While Precision is an important metric,  Recall for medical problems may be more accurate.
+
+**insert image**
+
+In viewing the matrix, we see **insert number** representing the fn and the **insert number** representing the tp from our model, we can agree that having **insert fn number** means that only **insert fn** patients are misdiagnosed as *not* having pneumonia.
+
+# Conclusion
+This project has shown how to classify positive and negative pneumonia diagnosis' from a set of X-Ray images and although it's far from complete and could be improved, it is amazing to see the success of deep learning being used in real world problems.
+
+# Recommended Next Steps
+* Source more data such as the Mendeley dataset, since it contains a larger number of images and may be more suitable for Deep Learning. Doing so will allow us to process the data with a more balanced distribution, as opposed to the Kaggle dataset, where the 'val' subset contains 16 images out of 5756 (only 0.2% of the data).
+
+* Attempt to build the models using larger datasets and running them with a greater number of epochs (such as 100 or more) if necessary to determine if there is convergence. I've unsuccessfully attempted this, however my system couldn't handle it.
+
+* Fine tune and test other parameters to reduce overfitting.
+
+* With this project as a base, our work can be built upon to detect more complex X-Rays, such as cancers, broken bones and more.
