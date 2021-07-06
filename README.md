@@ -21,3 +21,7 @@ Upon initially exploring the data, I noticed it contained a number of unusable f
 ### Data Visualization
 Because the X-Rays are labeled into groups it is necessary to verify their balance.
 As seen above, the data is clearly unbalanced. I've left it as it is in an attempt to give the highest weight possible to the training set, given that large datasets are necessary for Deep Learning. Furthermore, the train subset will be augmented so that the number of images increases to further stabilize the model.
+
+## Image Preprocessing
+I've used two processes for preparing the images for modeling:
+**Image Rescaling:** All images need to be rescaled to a fixed size before feeding them to the neural network. The larger the fixed size, the less shrinking required, which means less deformation of patterns inside the image and in turn higher chances that the model will perform well. I've rescaled all of the images to 256 colors (0 - 255).
