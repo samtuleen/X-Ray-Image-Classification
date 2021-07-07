@@ -113,7 +113,7 @@ This project has shown how to classify positive and negative pneumonia diagnosis
 # Recommended Next Steps
 * Source more data such as the Mendeley dataset, since it contains a larger number of images and may be more suitable for Deep Learning. Doing so will allow us to process the data with a more balanced distribution, as opposed to the Kaggle dataset, where the 'val' subset contains 16 images out of 5756 (only 0.2% of the data).
 
-* Attempt to build the models using larger datasets and running them with a greater number of epochs (such as 100 or more) if necessary to determine if there is convergence. I've unsuccessfully attempted this, however my system couldn't handle it.
+* Attempt to build the models using larger datasets and running them with a greater number of epochs (such as 100 or more) if necessary to determine if there is convergence. I've unsuccessfully attempted this, since my system couldn't handle it.
 
 * Fine tune and test other parameters to reduce overfitting.
 
