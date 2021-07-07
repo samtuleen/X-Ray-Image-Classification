@@ -3,7 +3,10 @@
 # Detecting Pediatric Pnuemonia From X-Rays Using Image Classification
 
 ## Summary
-The goal of this project is to use Deep Learning Neural Network to build an algorithm to classify a set X-rays images of pediatric patients to  help determine if whether or not pneumonia is present. The Neural Network chosen was the Convolutional Neural Network (CNN) as it is one of the preferred for image processing.
+The goal of this project is to use Deep Learning Neural Network to build an algorithm to classify a set X-rays images of pediatric patients to  help determine if whether or not pneumonia is present. Such an algorithm would be a major asset for doctors and medical professionals as it would significantly decrease the time it takes to review and diagnose a patient. In addition, the patient would benefit in knowing sooner than later if pneumonia is present so that treatment could begin promptly.
+
+The Neural Network chosen was the Convolutional Neural Network (CNN) as it is one of the preferred for image processing. 
+
 
 ### What is Pneumonia?
 Pneumonia is an infection that affects one or both lungs. It causes the air sacs, or alveoli, of the lungs to fill up with fluid or pus. Bacteria, viruses, or fungi may cause pneumonia. Symptoms can range from mild to serious and may include a cough with or without mucus (a slimy substance), fever, chills, and trouble breathing. How serious your pneumonia is depends on your age, your overall health, and what is causing your infection. 
@@ -118,3 +121,4 @@ This project has shown how to classify positive and negative pneumonia diagnosis
 * Fine tune and test other parameters to reduce overfitting.
 
 * With this project as a base, our work can be built upon to detect more complex X-Rays, such as cancers, broken bones and more.
+* The algorithm can be outputted to a web based application to be able to be fed new images and make a diagnosis.
