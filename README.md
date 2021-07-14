@@ -79,7 +79,7 @@ I've also plotted a Confusion Matrix to aid in the calculation of other metrics 
 
 The simplest way to analyze the perfomance of a model is to examine a visualization of its results:
 
-![model_performance](https://user-images.githubusercontent.com/71333855/124666289-70ccb000-de73-11eb-8462-ee8d416e7b48.png)
+![model_performance](https://user-images.githubusercontent.com/71333855/125697331-e4ff97e4-8616-4a0b-835d-27ad9939dfc1.png))
 
 As can be seen above, the curves of the validation accuracy and the loss indicate that the model may converge with more than 50 epochs (though it hasn't happened with the ones its been fitted with). As I've previously mentioned, I've attempted more but failed.
 
