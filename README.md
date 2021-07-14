@@ -30,6 +30,7 @@ Upon initially exploring the data, I noticed it contained a number of unusable f
 Because the X-Rays are labeled into groups it is necessary to verify their balance.
 
 ![databalance](https://user-images.githubusercontent.com/71333855/124665949-f9971c00-de72-11eb-8632-a7455b446033.png)
+Image: Training set (left) and test set (right).
 
 
 As seen above, the data is clearly unbalanced. I've left it as it is in an attempt to give the highest weight possible to the training set, given that large datasets are necessary for Deep Learning. Furthermore, the train subset will be augmented so that the number of images increases to further stabilize the model.
