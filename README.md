@@ -1,7 +1,16 @@
+![xrays](https://user-images.githubusercontent.com/71333855/124665613-8beaf000-de72-11eb-97a4-3cb3461ce694.png)
+
 # Detecting Pediatric Pnuemonia From X-Rays Using Image Classification
 
 ## Summary
+<<<<<<< HEAD
 The purpose use Deep Learning Neural Network to build an algorithm to classify a set X-rays images of pediatric patients to  help determine if whether or not pneumonia is present. The Neural Network chosen was the Convolutional Neural Network (CNN) as it is one of the preferred for image processing.
+=======
+The goal of this project is to use Deep Learning Neural Network to build an algorithm to classify a set X-rays images of pediatric patients to  help determine if whether or not pneumonia is present. Such an algorithm would be a major asset for doctors and medical professionals as it would significantly decrease the time it takes to review and diagnose a patient. In addition, the patient would benefit in knowing sooner than later if pneumonia is present so that treatment could begin promptly.
+
+The Neural Network chosen was the Convolutional Neural Network (CNN) as it is one of the preferred for image processing. 
+
+>>>>>>> b238664cb660fff787992015e25aa2065ffb7910
 
 ### What is Pneumonia?
 Pneumonia is an infection that affects one or both lungs. It causes the air sacs, or alveoli, of the lungs to fill up with fluid or pus. Bacteria, viruses, or fungi may cause pneumonia. Symptoms can range from mild to serious and may include a cough with or without mucus (a slimy substance), fever, chills, and trouble breathing. How serious your pneumonia is depends on your age, your overall health, and what is causing your infection. 
@@ -18,13 +27,15 @@ The data was sourced from [kaggle.com](https://www.kaggle.com/paultimothymooney/
 ### Exploring the Data
 Upon initially exploring the data, I noticed it contained a number of unusable files such as checkpoints and '.DS_store'. I made the decision to remove them before uploading because my functions repeatedly accessed them instead of the image files which would cause my code to break. I then loaded the data and explored the number of images per set and ensured that all of the files are readable. 
 
-**insert image**
+![xrayplot](https://user-images.githubusercontent.com/71333855/124665681-a1f8b080-de72-11eb-94d0-58e7966e58b9.png)
 
 
 ### Data Visualization
 Because the X-Rays are labeled into groups it is necessary to verify their balance.
 
-**insert image**
+![databalance](https://user-images.githubusercontent.com/71333855/124665949-f9971c00-de72-11eb-8632-a7455b446033.png)
+Image: Training set (left) and test set (right).
+
 
 As seen above, the data is clearly unbalanced. I've left it as it is in an attempt to give the highest weight possible to the training set, given that large datasets are necessary for Deep Learning. Furthermore, the train subset will be augmented so that the number of images increases to further stabilize the model.
 
@@ -45,26 +56,27 @@ I've augmented the training subset using the following parameters:
 
 I've built my model by doing the following:
 
-1- Use five convolutional blocks comprised of convolutional layers, BatchNormalization, and MaxPooling.
+1- Using five convolutional blocks comprised of convolutional layers, BatchNormalization, and MaxPooling.
 
-2- Reduce over-fitting by using dropouts.
+2- Reducing over-fitting by using dropouts.
 
-3- Use ReLu (rectified linear unit) activation function for all except the last layer. Since this is a binary classification problem, Sigmoid was used for the final layer.
+3- Using ReLu (rectified linear unit) activation function for all except the last layer. Since this is a binary classification problem, Sigmoid was used for the final layer.
 
-4- Use the Adam optimizer and cross-entropy for the loss.
+4- Using the Adam optimizer and cross-entropy for the loss.
 
-5- Add a flattened layer followed by fully connected layers. This is the last stage in CNN where the spatial dimensions of the input are collapsed into the channel dimension.
+5- Adding a flattened layer followed by fully connected layers. This is the last stage in CNN where the spatial dimensions of the input are collapsed into the channel dimension.
 
 Note:
-** ReLu: a piecewise linear function that outputs zero if its input is negative, and directly outputs the input otherwise.
-** Sigmoid: its gradient is defined everywhere and its output is conveniently between 0 and 1 for all x.
+
+* ReLu: a piecewise linear function that outputs zero if its input is negative, and directly outputs the input otherwise.
+* Sigmoid: its gradient is defined everywhere and its output is conveniently between 0 and 1 for all x.
 
 After testing 8 models, I've chosen the following since it has offered satisfactory results based on both its validation and test accuracy.
 The final model is a five Convolution Block model with twin (double) Conv2D per block and Dropout of 0.2.
 
-**insert image**
+<img width="445" alt="model" src="https://user-images.githubusercontent.com/71333855/124666185-467af280-de73-11eb-8baa-c0b70acc2377.png">
 
-All of the 8 models were initially trained with 10 and 15 epochs and was increased to 50 when the  the validation accuracy increased to more than 70%. Additionally, I've attempted to increase the epochs to 100 however my system couldn't handle the burden.
+All of the 8 models were initially trained with 10 and 15 epochs and was increased to 50 when the validation accuracy increased to more than 70%. I've attempted to increase the epochs to 100 however my system couldn't handle the burden.
 
 I've also plotted a Confusion Matrix to aid in the calculation of other metrics such as F-1, recall, and precision.
 
@@ -72,18 +84,18 @@ I've also plotted a Confusion Matrix to aid in the calculation of other metrics 
 
 The simplest way to analyze the perfomance of a model is to examine a visualization of its results:
 
-**insert image**
+![model_performance](https://user-images.githubusercontent.com/71333855/125697331-e4ff97e4-8616-4a0b-835d-27ad9939dfc1.png))
 
 As can be seen above, the curves of the validation accuracy and the loss indicate that the model may converge with more than 50 epochs (though it hasn't happened with the ones its been fitted with). As I've previously mentioned, I've attempted more but failed.
 
-It's clear from the train accuracy that the model is overfitted; however the model's accuracies were still decent with the test subset. See the results below:
+It's clear from the train accuracy that the model is overfitted; however the model's accuracies were still decent with the test subset. The results were:
 
 * Accuracy: 91.22137404580153%
 * Precision: 90.38461538461539%
 * Recall: 96.76470588235294%
 * F1-score: 93.4659090909091
 
-It's important to note in evaluating the model that accuracy is an inappropriat perfomance measure for imbalanced classification problems such as this. This is because the high number of samples that form the majority class (training subset) overshadows the number of examples in the minority class. This translates to accuracy scores as high as 99% for unskilled models, depending on how severe the class imbalance is. [Source](https://machinelearningmastery.com/precision-recall-and-f-measure-for-imbalanced-classification/)
+It's important to note in evaluating the model that accuracy is an inappropriate perfomance measure for imbalanced classification problems such as this. This is because the high number of samples that form the majority class (training subset) overshadows the number of examples in the minority class. This translates to accuracy scores as high as 99% for unskilled models, depending on how severe the class imbalance is. [Source](https://machinelearningmastery.com/precision-recall-and-f-measure-for-imbalanced-classification/)
 
 As an alternative better option, using precision, recall and F-1 metrics can offer more reliable results. These metric concepts are are follows:
 
@@ -93,13 +105,13 @@ As an alternative better option, using precision, recall and F-1 metrics can off
 
 **F1-Score:** balances both the concerns of precision and recall in one number. A good F1 score means low false positives and low false negatives  = (tp + tp)/total
 
-**Note: tp = true positive, tn = true negative, fp = false positive, and fn = false negative**
+**Note: tp = true positive, tn = true negative, fp = false positive, and fn = false negative** [See above source for reference]
 
 
 ### Confusion Matrix
 I'll now examine the plotted confusion to better understand these metrics. It's important to keep in mind that the most important one is Recall, because patients prefer that the doctor misdiagnosed them with pneumonia when in fact they don't, over a healthy misdiagnosis when in reality pneumonia is present. While Precision is an important metric,  Recall for medical problems may be more accurate.
 
-**insert image**
+![confusion_matrix](https://user-images.githubusercontent.com/71333855/124666777-25ff6800-de74-11eb-85e6-fb511735372b.png)
 
 In viewing the matrix, we see 11 representing the fn and the 329 representing the tp from our model, we can deduct that this means that only 11 patients are misdiagnosed as *not* having pneumonia.
 
@@ -109,8 +121,9 @@ This project has shown how to classify positive and negative pneumonia diagnosis
 # Recommended Next Steps
 * Source more data such as the Mendeley dataset, since it contains a larger number of images and may be more suitable for Deep Learning. Doing so will allow us to process the data with a more balanced distribution, as opposed to the Kaggle dataset, where the 'val' subset contains 16 images out of 5756 (only 0.2% of the data).
 
-* Attempt to build the models using larger datasets and running them with a greater number of epochs (such as 100 or more) if necessary to determine if there is convergence. I've unsuccessfully attempted this, however my system couldn't handle it.
+* Attempt to build the models using larger datasets and running them with a greater number of epochs (such as 100 or more) if necessary to determine if there is convergence. I've unsuccessfully attempted this, since my system couldn't handle it.
 
 * Fine tune and test other parameters to reduce overfitting.
 
 * With this project as a base, our work can be built upon to detect more complex X-Rays, such as cancers, broken bones and more.
+* The algorithm can be outputted to a web based application to be able to be fed new images and make a diagnosis.
