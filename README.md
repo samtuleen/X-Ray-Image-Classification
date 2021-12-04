@@ -4,7 +4,7 @@
 The purpose of this project is to use Deep Learning Neural Networks to build an algorithm that classifies a set X-rays images belonging to pediatric patients. This algorithm will help determine if whether or not pneumonia is present. The Neural Network chosen was the Convolutional Neural Network (CNN) as it is one of the preferred networks for image processing.
 
 ### What is Pneumonia?
-Pneumonia is an infection affecting one or both lungs by causing the air sacs, or alveoli, of the lungs to fill up with fluid or pus. It is caused by bacteria, viruses, or fungi. Symptoms can range from mild to serious and may include a cough with or without mucus (a slimy substance), fever, chills, and trouble breathing. How serious your pneumonia is depends on your age, your overall health, and what is causing your infection. 
+Pneumonia is an infection affecting one or both lungs by causing the air sacs, or alveoli, of the lungs to fill up with fluid or pus. It is caused by bacteria, viruses, or fungi. Symptoms can range from mild to serious and may include a cough with or without mucus (a slimy substance), fever, chills, and trouble breathing. The severity of the infection is depends on the age, overall health (of the infected), and the cause of the infection
 [Source](https://www.nhlbi.nih.gov/health-topics/pneumonia)
 
 ### What is CNN?
